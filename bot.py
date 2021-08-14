@@ -34,8 +34,3 @@ async def message(message: 'https://www.securitylab.ru/news/' ):
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
-
-
-
-
-
