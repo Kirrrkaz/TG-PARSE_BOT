@@ -30,7 +30,7 @@ for article in article_cards:
     #article_date_time = article.find("time")
 
 
-    print(f"{article_title} \n {article_url}")
+    #print(f"{article_title} \n {article_url}")
 
 #for title in title:
 #print(title.text)
@@ -51,7 +51,8 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def message(message: '/news' ):
-    await message.answer(title.text)
+    await message.answer(article_title)
+    await message.answer(article_url)
 
 
 
