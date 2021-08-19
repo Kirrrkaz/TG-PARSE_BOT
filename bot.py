@@ -10,7 +10,7 @@ article_cards = soup.find_all("a", class_="article-card")
 
 for article in article_cards:
     article_title = article.find("h2", class_="article-card-title")
-    article_title = str(article_title).split('<h2 class="article-card-title">')[1].split('  </h2>')[0]
+    article_title = str(article_title).split('<h2 class="article-card-title">')[1].split('</h2>')[0]
     article_desc = article.find("p")
     article_url = f'https://www.securitylab.ru{article.get("href")}'
  
