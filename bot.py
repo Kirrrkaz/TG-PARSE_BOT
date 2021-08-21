@@ -3,18 +3,21 @@ import requests
 import logging
 from bs4 import BeautifulSoup as bs
 
+NEWS = {}
+
 url = "https://www.securitylab.ru/news/"
 request = requests.get(url)
 soup = bs(request.text, "html.parser")
 article_cards = soup.find_all("a", class_="article-card")
 
 for article in article_cards:
-    article_title = article.find("h2", class_="article-card-title")
-    article_title = str(article_title).split('<h2 class="article-card-title">')[1].split('</h2>')[0]
-    article_desc = article.find("p")
+    
     article_url = f'https://www.securitylab.ru{article.get("href")}'
- 
-API_TOKEN = '...'
+    
+    NEWS[article_url] = f'https://www.securitylab.ru{article.get("href")}'
+
+
+API_TOKEN = '1930176020:AAEhndgdSgm9SSUiwpg_NAlCgJoy-2EK3Bk'
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN)
@@ -26,9 +29,8 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def message(message: '/news' ):
-    await message.answer(article_title)
-    await message.answer(article_url)
-
+    for i in NEWS:
+        await message.answer(i)
 
 
 if __name__ == '__main__':
