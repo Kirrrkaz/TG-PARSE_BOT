@@ -1,0 +1,14 @@
+aiogram==2.14.3     
+aiohttp==3.7.4.post0      
+beautifulsoup4==4.9.3      
+bs4==0.0.1        
+html5lib==1.1        
+lxml==4.6.3      
+pip==21.2.4     
+pyTelegramBotAPI==3.7.7      
+requests==2.25.1
+setuptools==56.0.0
+soupsieve==2.2.1
+typing-extensions==3.10.0.0
+urllib3==1.26.4
+webencodings==0.5.1
